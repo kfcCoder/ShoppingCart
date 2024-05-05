@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav"
+    app:startDestination="@id/shopFrag">
+
+    <fragment
+        android:id="@+id/shopFrag"
+        android:name="com.example.appdemo5.ui.shop.ShopFrag"
+        android:label="ShopFrag" >
+        <action
+            android:id="@+id/action_shopFrag_to_cartFrag"
+            app:destination="@id/cartFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFrag"
+        android:name="com.example.appdemo5.ui.cart.CartFrag"
+        android:label="CartFrag" >
+        <action
+            android:id="@+id/action_cartFrag_to_orderFrag"
+            app:destination="@id/orderFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderFrag"
+        android:name="com.example.appdemo5.ui.order.OrderFrag"
+        android:label="OrderFrag" >
+        <action
+            android:id="@+id/action_orderFrag_to_shopFrag"
+            app:destination="@id/shopFrag" />
+    </fragment>
+</navigation>

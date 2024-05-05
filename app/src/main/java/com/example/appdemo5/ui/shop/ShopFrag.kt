@@ -1,4 +1,4 @@
-package com.example.appdemo5.ui.cart
+package com.example.appdemo5.ui.shop
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,18 +7,18 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.appdemo5.R
-import com.example.appdemo5.databinding.FragCartBinding
+import com.example.appdemo5.databinding.FragShopBinding
 
-class CartFrag : Fragment() {
+class ShopFrag : Fragment() {
 
-    private lateinit var binding: FragCartBinding
+    private lateinit var binding: FragShopBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.frag_cart, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.frag_shop, container, false)
         return binding.root
     }
 
