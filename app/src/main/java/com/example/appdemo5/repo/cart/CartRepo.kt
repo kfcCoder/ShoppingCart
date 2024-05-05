@@ -8,7 +8,10 @@ import com.example.appdemo5.model.shop.Product
 
 class CartRepo {
 
-
+    init {
+        initCart()
+        initPriceLive()
+    }
 
     private val _cartItemsLive = MutableLiveData<List<CartItem>>()
     val cartItemsLive: LiveData<List<CartItem>> = _cartItemsLive
@@ -16,10 +19,16 @@ class CartRepo {
     private val _totalPriceLive = MutableLiveData<Int>()
     val totalPriceLive: LiveData<Int> = _totalPriceLive
 
-    init {
+    fun initCart() {
         _cartItemsLive.postValue(listOf())
+        calculateTotalPrice()
+    }
+
+    private fun initPriceLive() {
         _totalPriceLive.postValue(0)
     }
+
+
 
     fun addItemToCart(product: Product): Boolean {
         val list = _cartItemsLive.value ?: return false
@@ -46,9 +55,7 @@ class CartRepo {
         return true
     }
 
-    private fun calculateTotalPrice() { // should be invoked every time setValue on cartItemsLive
-        //if (totalPriceLive.value == null) return
-
+    private fun calculateTotalPrice() {
         var total = 0
         val cartItemList = cartItemsLive.value ?: return
 
