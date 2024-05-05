@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
         android:gravity="center"
-        android:onClick="@{()->shopInterface.onItemClick(product)}"
         android:orientation="vertical">
 
         <ImageView

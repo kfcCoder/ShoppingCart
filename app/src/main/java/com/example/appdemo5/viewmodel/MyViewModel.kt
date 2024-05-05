@@ -23,13 +23,15 @@ class MyViewModel : ViewModel() {
     }*/
 
 
-    /* shop */
+
+
+    /* shop*/
     private val shopRepo = ShopRepo()
 
     fun productListLive() = shopRepo.productListLive
 
 
-    /* cart */
+    /* cart
     private val cartRepo = CartRepo()
 
     fun getCartItemsLive() = cartRepo.cartItemsLive
@@ -51,5 +53,5 @@ class MyViewModel : ViewModel() {
 
     fun resetCart() {
         cartRepo.initCart()
-    }
+    }*/
 }

@@ -6,13 +6,12 @@ import com.example.appdemo5.model.shop.Product
 
 class ShopRepo {
 
-    init {
-        loadProducts()
-    }
-
     private val _productListLive = MutableLiveData<List<Product>>()
     val productListLive: LiveData<List<Product>> = _productListLive
 
+    init {
+        loadProducts()
+    }
 
     private fun loadProducts() {
         val products = mutableListOf<Product>()
