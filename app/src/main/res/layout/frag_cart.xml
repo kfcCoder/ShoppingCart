@@ -23,7 +23,7 @@
                 app:srcCompat="@drawable/ic_back" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/cartRecyclerView"
+                android:id="@+id/rvCart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

@@ -30,7 +30,7 @@ class CartAdapter : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
         fun bind(item: CartItem) {
             binding.tvProductName.text = item.product.name
-            //binding.tvItemTotalPrice.text =
+            binding.tvQty.text = "${item.quantity}"
 
         }
     }
