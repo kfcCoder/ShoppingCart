@@ -16,6 +16,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/icBack"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:srcCompat="@drawable/ic_back" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/cartRecyclerView"
                 android:layout_width="match_parent"
