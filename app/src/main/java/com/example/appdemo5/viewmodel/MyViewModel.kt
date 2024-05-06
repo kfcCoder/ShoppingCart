@@ -1,6 +1,7 @@
 package com.example.appdemo5.viewmodel
 
 import androidx.lifecycle.ViewModel
+import com.example.appdemo5.model.cart.CartItem
 import com.example.appdemo5.model.shop.Product
 import com.example.appdemo5.repo.cart.CartRepo
 import com.example.appdemo5.repo.shop.ShopRepo
@@ -40,14 +41,16 @@ class MyViewModel : ViewModel() {
         return cartRepo.addItemToCart(product)
     }
 
+    fun changeQty(cartItem: CartItem, qty: Int) {
+        cartRepo.changeQty(cartItem, qty)
+    }
+
+
     /*
     fun removeItemFromCart(cartItem: CartItem) {
         //cartRepo.removeItemFromCart(cartItem)
     }
 
-    fun changeQty(cartItem: CartItem, qty: Int) {
-        //cartRepo.changeQty(cartItem, qty)
-    }
 
     fun getTotalPrice() = cartRepo.totalPriceLive
 

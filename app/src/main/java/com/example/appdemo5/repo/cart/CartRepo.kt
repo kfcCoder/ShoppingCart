@@ -67,6 +67,17 @@ class CartRepo {
         _totalPriceLive.postValue(total)
     }
 
+    fun changeQty(cartItem: CartItem, quantity: Int) {
+        val list = _cartItemsLive.value ?: return
+        val cartItemList = list.toMutableList()
+
+        val updatedItem = CartItem(cartItem.product, quantity)
+        cartItemList[cartItemList.indexOf(cartItem)] = updatedItem
+        _cartItemsLive.postValue(cartItemList)
+        calculateTotalPrice()
+    }
+
+
     /*
     fun removeItemFromCart(cartItem: CartItem) {
         if (cartItemsLive.value == null) {
@@ -78,14 +89,7 @@ class CartRepo {
         calculateTotalPrice()
     }*/
 
-    /*
-    fun changeQuantity(cartItem: CartItem, quantity: Int) {
-        if (cartItemsLive.value == null) return
-        val cartItemList: MutableList<CartItem> = ArrayList(cartItemsLive.value)
-        val updatedItem = CartItem(cartItem.product, quantity)
-        cartItemList[cartItemList.indexOf(cartItem)] = updatedItem
-        cartItemsLive.setValue(cartItemList)
-        calculateTotalPrice()
-    }*/
+
+
 
 }
