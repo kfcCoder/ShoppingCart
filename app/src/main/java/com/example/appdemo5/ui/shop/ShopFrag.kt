@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.appdemo5.R
@@ -38,16 +39,26 @@ class ShopFrag : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // all products
+        viewModel.getProductListLive().observe(viewLifecycleOwner) {
+            shopAdapter.list = it
+            Log.e(TAG, "productList: $it")
+        }
+
+        // nav to cart
+        binding.icCart.setOnClickListener {
+            findNavController().navigate(R.id.action_shopFrag_to_cartFrag)
+        }
+
+        // recyclerView
         binding.rvShop.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = shopAdapter
             addItemDecoration(DividerItemDecoration(requireActivity(), DividerItemDecoration.HORIZONTAL))
         }
 
-        viewModel.productListLive().observe(viewLifecycleOwner) {
-            shopAdapter.list = it
-            Log.e(TAG, "productList: $it")
-        }
+
+
 
 
 

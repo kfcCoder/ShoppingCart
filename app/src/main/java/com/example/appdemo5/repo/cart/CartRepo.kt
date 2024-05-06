@@ -8,18 +8,19 @@ import com.example.appdemo5.model.shop.Product
 
 class CartRepo {
 
-    init {
-        initCart()
-        initPriceLive()
-    }
-
     private val _cartItemsLive = MutableLiveData<List<CartItem>>()
     val cartItemsLive: LiveData<List<CartItem>> = _cartItemsLive
 
     private val _totalPriceLive = MutableLiveData<Int>()
     val totalPriceLive: LiveData<Int> = _totalPriceLive
 
-    fun initCart() {
+
+    init {
+        initCart()
+        initPriceLive()
+    }
+
+    private fun initCart() {
         _cartItemsLive.postValue(listOf())
         calculateTotalPrice()
     }
