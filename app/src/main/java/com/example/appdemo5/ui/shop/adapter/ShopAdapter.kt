@@ -17,15 +17,17 @@ class ShopAdapter : RecyclerView.Adapter<ShopAdapter.ShopViewHolder>() {
         }
 
     /* click listener */
-    private var _onItemClickListener: ((Product) -> Unit)? = null
+    private var _onItemAddListener: ((Product) -> Unit)? = null
 
-    fun setOnItemClickListener(listener: (Product) -> Unit) {
-        _onItemClickListener = listener
+    fun setOnItemAddListener(listener: (Product) -> Unit) {
+        _onItemAddListener = listener
     }
 
     inner class ShopViewHolder(val binding: CellShopBinding) : RecyclerView.ViewHolder(binding.root)  {
         init {
-
+            binding.btAddToCart.setOnClickListener {
+                _onItemAddListener?.invoke(list[adapterPosition])
+            }
         }
 
         fun bind(product: Product) {

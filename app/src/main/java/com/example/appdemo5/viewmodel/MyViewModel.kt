@@ -1,6 +1,7 @@
 package com.example.appdemo5.viewmodel
 
 import androidx.lifecycle.ViewModel
+import com.example.appdemo5.model.shop.Product
 import com.example.appdemo5.repo.cart.CartRepo
 import com.example.appdemo5.repo.shop.ShopRepo
 
@@ -34,11 +35,12 @@ class MyViewModel : ViewModel() {
 
     fun getCartItemsLive() = cartRepo.cartItemsLive
 
-    /*
+
     fun addItemToCart(product: Product): Boolean {
         return cartRepo.addItemToCart(product)
     }
 
+    /*
     fun removeItemFromCart(cartItem: CartItem) {
         //cartRepo.removeItemFromCart(cartItem)
     }

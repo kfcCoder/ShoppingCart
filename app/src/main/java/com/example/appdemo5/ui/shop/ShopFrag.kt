@@ -42,13 +42,20 @@ class ShopFrag : Fragment() {
         // all products
         viewModel.getProductListLive().observe(viewLifecycleOwner) {
             shopAdapter.list = it
-            Log.e(TAG, "productList: $it")
+            Log.d(TAG, "productList: $it")
         }
 
         // nav to cart
         binding.icCart.setOnClickListener {
             findNavController().navigate(R.id.action_shopFrag_to_cartFrag)
         }
+
+        // click event of adapter
+        shopAdapter.setOnItemAddListener {
+            val isSuccess = viewModel.addItemToCart(it)
+            Log.e(TAG, "isAdded: $isSuccess")
+        }
+
 
         // recyclerView
         binding.rvShop.apply {
